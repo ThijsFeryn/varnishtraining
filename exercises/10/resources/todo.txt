@@ -1,0 +1,40 @@
+ == Cookies ==
+ 1. Load default.vcl
+ 2. Go to http://varnish.dev/exercises/10/time.cookie.php multiple times
+ 3. Load cache.cookies.vcl
+ 4. varnishlog -i Hash
+ 5. Go to http://varnish.dev/exercises/10/time.cookie.php multiple times in various browsers
+ 6. Go to http://varnish.dev/exercises/10/javascript.time.cookie.php multiple times
+ 7. Load ignore.cookies.vcl
+ 8. varnishlog -i Hash
+ 9. Go to http://varnish.dev/exercises/10/time.cookie.php multiple times in various browsers
+10. Load remove.cookies.vcl
+11. varnishlog -i Hash
+12. Go to http://varnish.dev/exercises/10/time.cookie.php multiple times in various browsers
+13. Clear cookies for varnish.dev in all browsers
+14. Load lang.cookie.vcl
+15. varnishlog -i Hash
+16. Go to http://varnish.dev/exercises/10/lang.cookie.php in various browsers
+17. Select language in one browser and refresh
+18. Refresh other browser
+19. Select language in other browser and refresh
+20. Clear cookies for varnish.dev in all browsers
+21. Load session.vcl
+22. varnishlog -i Hash
+23. Go to http://varnish.dev/exercises/10/session.php in various browsers
+24. Enter name, submit and refresh in one browser
+25. Enter name, submit and refresh in another browser
+26. Logout and refresh
+
+== Static data ==
+ 1. Clear cookies for varnish.dev in all browsers
+ 2. Load static.vcl
+ 3. Go to http://varnish.dev/exercises/10/static.php
+ 4. Analyse hit/miss headers for page and image
+
+== URL sanitizing ==
+ 1. Clear cookies for varnish.dev in all browsers
+ 2. Load sanitize.vcl
+ 3. varnishlog -i Hash
+ 4. Go to http://varnish.dev/exercises/10/sanitize.php
+ 5. Follow links and examine hash in varnishlog output

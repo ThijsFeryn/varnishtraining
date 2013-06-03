@@ -1,0 +1,21 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant::Config.run do |config|
+  config.vm.box = "lucid32"
+  config.vm.box_url = "http://files.vagrantup.com/lucid32.box"
+  config.vm.customize [
+        "modifyvm", :id,
+        "--name", "Varnish Training",
+        "--memory", "512"
+  ]
+  config.vm.network :hostonly, "12.12.12.6"
+  config.vm.share_folder "v-data", "/home/data", "./"
+
+  config.vm.provision :puppet do |puppet|
+    puppet.manifests_path = "tools/puppet/manifests"
+    puppet.module_path = "tools/puppet/modules"
+    puppet.options = ['--verbose']
+    puppet.manifest_file  = "init.pp"
+  end
+end
