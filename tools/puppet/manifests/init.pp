@@ -19,7 +19,11 @@ apache::vhost { 'varnish.dev':
     docroot     => '/home/data/',
     notify => File['ports.conf'],
 }
-apache::module { 'php5':
+class { 'php':
+    require => Class['apt::update']
+}
+class { 'php::apache2':
+    require => Class['apt::update']
 }
 file { 'ports.conf':
   ensure  => file,
@@ -45,8 +49,6 @@ class varnish_custom inherits varnish {
     }
 }
 class { 'varnish_custom':
-}
-class { 'php':
 }
 include nginx
 file { 'nginx_vhost':
