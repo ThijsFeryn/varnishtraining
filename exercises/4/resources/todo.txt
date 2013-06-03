@@ -16,4 +16,6 @@
 16. http://varnish.dev/exercises/4/missing.php (miss, 404)
 17. Create missing.php
 18. http://varnish.dev/exercises/4/missing.php (miss, still 404)
-19. Delete missing.php
+19. varnishadm ban.url /exercises/4/missing.php
+20. http://varnish.dev/exercises/4/missing.php (exists)
+21. Delete missing.php
