@@ -1,8 +1,8 @@
  1. varnishtop -c -i RxHeader -I ^User-Agent
  2. Go to http://varnish.dev/exercises/5/hit.php multiple times
- 3. varnishtop -b -i TxURL
+ 3. varnishtop -i TxURL
  4. Go to http://varnish.dev/exercises/5/hit.php multiple times
  5. Go to http://varnish.dev/exercises/5/miss.php multiple times
- 6. varnishtop -c -i RxURL
+ 6. varnishtop -i RxURL
  7. Go to http://varnish.dev/exercises/5/hit.php multiple times
  8. Go to http://varnish.dev/exercises/5/miss.php multiple times
