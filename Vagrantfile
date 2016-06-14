@@ -2,7 +2,7 @@
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
-  config.vm.box = "deb/jessie-amd64"
+  config.vm.box = "ThijsFeryn/varnishtraining"
   config.vm.hostname = "varnishtraining"
 
   config.vm.network :private_network, ip: "10.10.10.6"
