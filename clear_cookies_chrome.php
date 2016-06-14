@@ -1,6 +1,6 @@
 <?php
 try {
-    $site = 'fcb.support';
+    $site = 'varnishtraining.dev';
     $file = '/Users/'.get_current_user().'/Library/Application Support/Google/Chrome/Default/Cookies';
     if(PHP_OS != 'Darwin') {
         throw new Exception("only works on Mac");
