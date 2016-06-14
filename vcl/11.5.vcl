@@ -10,7 +10,7 @@ sub vcl_recv {
         return (hash);
     }
 }
-sub vcl_fetch {
+sub vcl_backend_response {
 	if (req.url ~ "^[^?]*\.(bmp|bz2|css|doc|eot|flv|gif|gz|ico|jpeg|jpg|js|less|mp[34]|pdf|png|rar|rtf|swf|tar|tgz|txt|wav|woff|xml|zip)(\?.*)?$") {
         unset beresp.http.set-cookie;
     }
