@@ -1,5 +1,5 @@
 <?php
-header('Expires: ' . gmdate('D, d M Y H:i:s', time()+3) . ' GMT');
+header('Expires: ' . gmdate('D, d M Y H:i:s', time()+15) . ' GMT');
 header("Cache-Control: public,must-revalidate,max-age=10,s-maxage=5");
 ?>
 <h1>Exercise 1</h1>
