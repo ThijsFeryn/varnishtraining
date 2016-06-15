@@ -6,5 +6,5 @@ backend default {
 }
 
 sub vcl_backend_response {
-    set beresp.grace = 10s;
+    set beresp.grace = 30s;
 }

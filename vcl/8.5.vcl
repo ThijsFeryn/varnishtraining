@@ -5,15 +5,8 @@ backend default {
     .port = "8080";
 }
 
-acl purge {
-    "127.0.0.1";
-}
-
 sub vcl_recv {
     if(req.method == "PURGE") {
-        if(!client.ip ~ purge) {
-            return(synth(405,"Not allowed"));
-        }
         if(req.http.x-purge-regex) {
             ban("obj.http.x-host == " + req.http.host + " && obj.http.x-url ~ " + req.http.x-purge-regex);
         } else {
