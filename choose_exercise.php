@@ -17,6 +17,25 @@ function exercise($start,$end,$sub=false)
     }
     return trim($exercise);
 }
+function copyVcl($filename)
+{
+    $file = dirname(__FILE__).'/vcl/'.$filename;
+    if(!file_exists($file)) {
+        echo "File '{$file}' not found".PHP_EOL;
+        exit(1);
+    }
+    copy($file,'/etc/varnish/default.vcl');
+    exec('service varnish restart');
+    echo "$file is now loaded".PHP_EOL;
+    exit(0);
+}
+if(isset($argv[1])) {
+    if(!preg_match('/^[0-9]+(\.[0-9])?$/',$argv[1])) {
+        echo "Invalid exercise '{$argv[0]}'".PHP_EOL;
+        exit(1);
+    }
+    copyVcl($argv[1].'.vcl');
+}
 $exercise = exercise(1,13);
 switch($exercise) {
     case 1:
@@ -46,12 +65,4 @@ switch($exercise) {
         break;
 
 }
-$file = dirname(__FILE__).'/vcl/'.$file;
-if(!file_exists($file)) {
-    echo "File '{$file}' not found".PHP_EOL;
-    exit(1);
-}
-copy($file,'/etc/varnish/default.vcl');
-exec('service varnish restart');
-echo "$file is now loaded".PHP_EOL;
-exit(0);
+copyVcl($file);
