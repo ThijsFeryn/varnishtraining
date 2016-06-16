@@ -1,5 +1,6 @@
 <?php
-//header('HTTP/1.1 202 Accepted');
+header("Cache-Control: max-age= 10");
+header('HTTP/1.1 202 Accepted');
 ?>
 <h1>Exercise 3</h1>
 <h2>Non-cacheable status code (by default)</h2>
