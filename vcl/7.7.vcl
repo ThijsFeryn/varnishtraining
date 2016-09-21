@@ -14,13 +14,13 @@ probe healthcheck {
 
 backend nginx {
   .host = "127.0.0.1";
-  .port = "8080";
+  .port = "8081";
   .probe = healthcheck;
 }
 
 backend nginx2 {
   .host = "127.0.0.1";
-  .port = "8081";
+  .port = "8082";
 }
 
 sub vcl_init {
