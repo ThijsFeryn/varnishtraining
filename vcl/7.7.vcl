@@ -2,20 +2,9 @@ vcl 4.0;
 
 import directors;
 
-probe healthcheck {
-   .url = "/exercises/7/down.php";
-   .interval = 1s;
-   .timeout = 1s;
-   .window = 1;
-   .threshold = 1;
-   .initial = 1;
-   .expected_response = 200;
-}
-
 backend nginx {
   .host = "127.0.0.1";
   .port = "8081";
-  .probe = healthcheck;
 }
 
 backend nginx2 {
@@ -24,12 +13,12 @@ backend nginx2 {
 }
 
 sub vcl_init {
-    new loadbalance = directors.fallback();
-    loadbalance.add_backend(nginx);
-    loadbalance.add_backend(nginx2);
+    new loadbalance = directors.hash();
+    loadbalance.add_backend(nginx,1.0);
+    loadbalance.add_backend(nginx2,1.0);
 }
 
 sub vcl_recv {
-    set req.backend_hint = loadbalance.backend();
+    set req.backend_hint = loadbalance.backend(regsuball(req.http.Cookie, "^.*;? ?PHPSESSID=([a-zA-Z0-9]+)( ?|;| ;).*$","\1"));
     return(pass);
 }
