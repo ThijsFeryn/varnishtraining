@@ -10,4 +10,4 @@ If your internet connection is fast enough, Vagrant will automatically download 
 
 1.  `vagrant up`
 2.  Add `10.10.10.6 varnishtraining.dev` to your hosts file
-3.  Go to [http://varnishtraining.dev/](http://varnishtraining.dev/) to continue
+3.  Go to [http://varnishtraining.dev:8080](http://varnishtraining.dev:8080) to continue
