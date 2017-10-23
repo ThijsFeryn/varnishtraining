@@ -1,5 +1,5 @@
 <?php
-require_once dirname(__FILE__).'/vendor/autoload.php';
+require_once dirname(__FILE__) . '/silex/vendor/autoload.php';
 use Symfony\Component\HttpKernel\HttpCache\Esi;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

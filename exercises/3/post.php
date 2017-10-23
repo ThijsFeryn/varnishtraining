@@ -1,5 +1,5 @@
 <?php
-header("Cache-Control: public,must-revalidate,max-age=10,s-maxage=5");
+header("Cache-Control: s-maxage=30");
 ?>
 <h1>Exercise 3</h1>
 <h2>Working with GET and POST</h2>

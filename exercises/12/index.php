@@ -1,5 +1,5 @@
 <?php
-sleep(10);
+//sleep(2);
 header("Cache-Control: public,must-revalidate,s-maxage= 10");
 ?>
 <h1>Exercise 12</h1>
