@@ -26,8 +26,10 @@ If you want access to the `varnishlog` binary to monitor what's happening run `d
 
 If the example contains 2 Varnish instances, run both commands in a separate shell to access the `varnishlog` binary of both Varnish containers:
 
-`docker exec -ti sflive-varnish bash`
-`docker exec -ti sflive-varnish2 bash`
+```
+docker exec -ti sflive-varnish bash
+docker exec -ti sflive-varnish2 bash
+```
 
 ## Docker images
 
