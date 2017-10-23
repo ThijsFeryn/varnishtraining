@@ -16,9 +16,10 @@ The Docker base boxes are as minimal as possible, you won't need a lot of bandwi
 
 If you want to run an example, go through the following steps
 
-1.  Choose an example
-2.  Run `docker-compose up` or `docker-compose up -d` to boot the setup
-3.  Go to http://localhost/ to run the example
+1.  Choose an example.
+2.  Run `docker-compose up` or `docker-compose up -d` to boot the setup.
+3.  Go to http://localhost/ to run the example.
+4.  Shut the example containers down using the `docker-compose down` command.
 
 ## Varnishlog access
 
