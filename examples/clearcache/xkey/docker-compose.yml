@@ -1,0 +1,34 @@
+version: '3'
+services:
+  nginx:
+    image: "thijsferyn/nginx:primary"
+    container_name: sflive-nginx
+    hostname: nginx
+    volumes:
+    -  ./:/var/www/html
+    ports:
+     - "8080:80"  
+    depends_on:
+      - "php"
+  php:
+    image: "thijsferyn/php:primary"
+    restart: always
+    container_name: sflive-php
+    hostname: php
+    volumes:
+    -  ./:/var/www/html
+    ports:
+     - "9000:9000"
+  varnish:
+    image: "thijsferyn/varnish:primary"
+    container_name: sflive-varnish
+    hostname: varnish
+    volumes:
+      -  ./default.vcl:/etc/varnish/default.vcl
+    ports:
+     - "80:6081"
+     - "6082:6082"
+    environment:
+    - BACKEND=nginx
+    depends_on:
+      - "nginx"
