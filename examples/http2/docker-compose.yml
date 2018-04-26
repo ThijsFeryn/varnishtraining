@@ -9,17 +9,7 @@ services:
     ports:
      - "8080:80"  
     depends_on:
-      - "php"  
-  nginx2:
-    image: "thijsferyn/nginx:secondary"
-    container_name: sflive-nginx2
-    hostname: nginx2
-    volumes:
-    -  ./:/var/www/html
-    ports:
-     - "8081:80"           
-    depends_on:
-      - "php2"    
+      - "php"
   php:
     image: "thijsferyn/php:primary"
     restart: always
@@ -29,15 +19,6 @@ services:
     -  ./:/var/www/html
     ports:
      - "9000:9000"
-  php2:
-    image: "thijsferyn/php:secondary"
-    restart: always
-    container_name: sflive-php2
-    hostname: php2
-    volumes:
-    -  ./:/var/www/html
-    ports:
-     - "9001:9000"
   varnish:
     image: "thijsferyn/varnish:primary"
     container_name: sflive-varnish
@@ -50,33 +31,19 @@ services:
      - "6082:6082"
      - "6083:6083"
     environment:
-    - BACKEND=nginx   
+    - BACKEND=nginx
     depends_on:
-      - "nginx"    
-  varnish2:
-    image: "thijsferyn/varnish:secondary"
-    container_name: sflive-varnish2
-    hostname: varnish2
-    volumes:
-      -  ./default.vcl:/etc/varnish/default.vcl
-    ports:
-     - "6084:6080"
-     - "6085:6081"
-     - "6086:6082"
-     - "6087:6083"
-    environment:
-    - BACKEND=nginx2  
-    depends_on:
-      - "nginx2"    
+      - "nginx"
   haproxy:
     image: "thijsferyn/haproxy:latest"
     container_name: sflive-haproxy
     hostname: haproxy
     environment:
       - SYSLOGD=1
+    volumes:
+      -  ./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg
     ports:
      - "80:80"
-     - "443:443"  
+     - "443:443"
     depends_on:
-      - "varnish"     
-      - "varnish2"
+      - "varnish"

@@ -76,8 +76,11 @@ services:
     image: "thijsferyn/haproxy:latest"
     container_name: sflive-haproxy
     hostname: haproxy
+    environment:
+      - SYSLOGD=1
     ports:
      - "80:80"
+     - "443:443"
     depends_on:
-      - "varnish"     
+      - "varnish"
       - "varnish2"
