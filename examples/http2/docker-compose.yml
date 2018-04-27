@@ -40,8 +40,6 @@ services:
     hostname: haproxy
     environment:
       - SYSLOGD=1
-    volumes:
-      -  ./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg
     ports:
      - "80:80"
      - "443:443"
