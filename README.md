@@ -2,9 +2,9 @@
 
 This repository contains the example code for the 6-hour Varnish training I created.
 
-This is the second iteration of the training course and was first presented at [Symfony Live Berlin 2017](https://feryn.eu/presentations/varnish-in-depth-symfony-live-phantasialand-2018).
+This is the second iteration of the training course and was first presented at [Symfony Live Berlin 2018](https://feryn.eu/presentations/varnish-in-depth-symfony-live-phantasialand-2018).
 
-The first iteration was last delivered at [VarnishCon 2017](https://feryn.eu/presentations/varnish-training-varnishcon-2016) in Amsterdam and can be found in the v1 branch.
+The first iteration was last delivered at [VarnishCon 2016](https://feryn.eu/presentations/varnish-training-varnishcon-2016) in Amsterdam and can be found in the v1 branch.
 
 ## Depencencies
 
